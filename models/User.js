@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Event = require('./Event')
 
 // Create Schema
 const UserSchema = new Schema({
@@ -19,6 +20,10 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  events: {
+    type: [Event.Schema],
+    default: []
+  }
 });
 
 module.exports = User = mongoose.model("users", UserSchema);
