@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import EventList from "./EventList";
+import EventForm from "./EventForm";
+
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
@@ -12,6 +15,7 @@ render() {
     console.log(this.props.auth)
 return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
+        <EventForm/>
         <div className="row">
           <div className="col s12 center-align">
             <h4>
@@ -21,6 +25,7 @@ return (
                 <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
               </p>
             </h4>
+            
             <button
               style={{
                 width: "150px",
@@ -35,10 +40,12 @@ return (
             </button>
           </div>
         </div>
+        <EventList/>
       </div>
     );
   }
 }
+
 Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired

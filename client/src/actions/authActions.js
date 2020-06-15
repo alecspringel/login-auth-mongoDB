@@ -48,12 +48,14 @@ export const setCurrentUser = (decoded) => {
     payload: decoded,
   };
 };
+
 // User loading
 export const setUserLoading = () => {
   return {
     type: USER_LOADING,
   };
 };
+
 // Log user out
 export const logoutUser = () => (dispatch) => {
   // Remove token from local storage

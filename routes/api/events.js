@@ -23,11 +23,12 @@ router.post("/create", authUser, (req, res) => {
     if (!user) {
       return res.status(404).json({ email: "User does not exist" });
     } else {
-      const newEvent = new Event({
-        title: "First Event Ever"
+      const newEvent = req.body.newEvent
+      const event = new Event({
+        title: newEvent.title
       });
 
-      user.events.push(newEvent)
+      user.events.push(event)
       user.save();
       res.send(newEvent);
     }
